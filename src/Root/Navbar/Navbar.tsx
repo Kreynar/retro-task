@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={() => setSelectedSprintId(lastSprintId as number)}
                 className={getClassName(
-                  `uppercase my-3 h-14`,
+                  `uppercase my-3 h-14 hover:backdrop-brightness-90`,
                   selectedSprintId === lastSprintId && "bg-blue-800"
                 )}
               >
@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   onClick={() => setSelectedSprintId(sprintId)}
                   className={getClassName(
-                    "my-3 h-10",
+                    "my-3 h-10 hover:backdrop-brightness-90 ",
                     sprintId === selectedSprintId && "bg-blue-800"
                   )}
                   key={sprintId}

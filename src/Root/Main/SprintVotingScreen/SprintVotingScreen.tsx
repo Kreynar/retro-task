@@ -10,6 +10,8 @@ import {
 } from "../../sprintEvaluationsUtils";
 import { postUserSprintEvaluation } from "./postUserSprintEvaluation";
 import { updateSprintEvaluationAsCompleted } from "./updateSprintEvaluationAsCompleted";
+import { getClassName } from "../../getClassName";
+import { UserCard } from "./UserCard";
 
 interface SprintVotingScreenProps {
   selectedSprintId: number;
@@ -66,38 +68,14 @@ export const SprintVotingScreen: React.FC<SprintVotingScreenProps> = ({
           <>
             <h1 className="font-bold text-2xl mb-5">Voting in progress...</h1>
             <div className="flex flex-wrap justify-center max-w-fit">
-              {users.map((user) => {
-                const hasUserEvaluatedSprint = getHasUserEvaluatedSprint(
-                  user,
-                  selectedSprintEvaluation
-                );
-                return (
-                  <button
-                    onClick={() =>
-                      hasUserEvaluatedSprint ? undefined : setSelectedUser(user)
-                    }
-                    className={`flex flex-col place-items-center w-40 h-40 m-2 shadow-md shadow-slate-300 rounded ${
-                      hasUserEvaluatedSprint ? "opacity-50" : ""
-                    }`}
-                    key={user.id}
-                  >
-                    <div className="h-8 w-full">
-                      {hasUserEvaluatedSprint && (
-                        <div className="h-4 w-fit mx-4 mt-3 uppercase bg-orange-500 text-xs font-bold px-2 text-white">
-                          voted
-                        </div>
-                      )}
-                    </div>
-                    <img
-                      src={user.profile_photo}
-                      alt="photo"
-                      className="rounded-full w-20 h-20"
-                    />
-                    <div className="font-bold">{user.name}</div>
-                    <div className="text-xs">{user.team}</div>
-                  </button>
-                );
-              })}
+              {users.map((user) => (
+                <UserCard
+                  user={user}
+                  selectedSprintEvaluation={selectedSprintEvaluation}
+                  setSelectedUser={setSelectedUser}
+                  key={user.id}
+                />
+              ))}
             </div>
           </>
         )}

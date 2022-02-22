@@ -32,8 +32,9 @@ export const Main: React.FC<MainProps> = ({
       <header className="h-20 border-b-2 border-gray-300 flex flex-row-reverse">
         <button
           className={getClassName(
-            "uppercase text-blue-800 w-36 mr-4 font-bold",
-            isEvaluationInProgressForLastSprint && "text-blue-200"
+            "uppercase text-blue-800 w-32 mr-4 font-bold",
+            isEvaluationInProgressForLastSprint && "text-blue-200",
+            !isEvaluationInProgressForLastSprint && "hover:font-extrabold"
           )}
           onClick={
             isEvaluationInProgressForLastSprint
