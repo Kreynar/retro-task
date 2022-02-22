@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Billy",
+      "team": "engineering",
+      "profile_photo": "https://www.fairtravel4u.org/wp-content/uploads/2018/06/sample-profile-pic.png"
+    },
+    {
+      "id": "2",
+      "name": "Emma",
+      "team": "engineering",
+      "profile_photo": "https://i.pinimg.com/564x/2e/34/4f/2e344fee959cb68383d92865302e24fe.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Tom",
+      "team": "engineering",
+      "profile_photo": "https://cdn-images.resumelab.com/authors/tom_gerencer_resumelab.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Maria",
+      "team": "product",
+      "profile_photo": "http://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112-400x284.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Lisa",
+      "team": "design",
+      "profile_photo": "http://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-110-400x284.jpg"
+    }
+  ]
+}
