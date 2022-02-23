@@ -1,4 +1,4 @@
-import { SprintEvaluations } from "./types";
+import { SprintEvaluations } from "../types";
 
 export const getSprintEvaluations = (): Promise<SprintEvaluations> => {
   // In real world here should be a call to BE.

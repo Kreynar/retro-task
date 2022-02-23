@@ -2,12 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Root } from "./Root/Root";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { SprintEvaluationsProvider } from "./SprintEvaluationsProvider";
 
 import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    <SprintEvaluationsProvider>
+      <BrowserRouter>
+        <Root />
+      </BrowserRouter>
+    </SprintEvaluationsProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { getClassName } from "../getClassName";
 import {
   getAscendingEvaluatedSprintIds,
@@ -6,19 +7,17 @@ import {
   getIsEvaluationInProgressForLastSprint,
   getLastSprintId,
 } from "../sprintEvaluationsUtils";
-import { SprintEvaluations } from "../types";
+import { SprintEvaluations } from "../../types";
 import perchpeekTitle from "./perchpeek-logo-white.png";
 
 interface NavbarProps {
   sprintEvaluations: SprintEvaluations;
   selectedSprintId?: number;
-  setSelectedSprintId: (selectedSprintId: number) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   sprintEvaluations,
   selectedSprintId,
-  setSelectedSprintId,
 }) => {
   const ascendingSprintIds = getAscendingSprintIds(sprintEvaluations);
   const lastSprintId = getLastSprintId(sprintEvaluations);
@@ -34,15 +33,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         <>
           {isEvaluationInProgressForLastSprint && (
             <>
-              <button
-                onClick={() => setSelectedSprintId(lastSprintId as number)}
+              <Link
+                to={`/sprints/${lastSprintId}`}
                 className={getClassName(
-                  `uppercase my-3 h-14 hover:backdrop-brightness-90`,
+                  `uppercase my-3 h-14 hover:backdrop-brightness-90 flex items-center justify-center`,
                   selectedSprintId === lastSprintId && "bg-blue-800"
                 )}
               >
                 current sprint
-              </button>
+              </Link>
               <hr className="border-t-1 border-white m-8" />
             </>
           )}
@@ -50,16 +49,16 @@ export const Navbar: React.FC<NavbarProps> = ({
             <section className="flex flex-col">
               <h3 className="uppercase text-xs">previous sprints</h3>
               {ascendingEvaluatedSprintIds.map((sprintId) => (
-                <button
-                  onClick={() => setSelectedSprintId(sprintId)}
+                <Link
+                  to={`/sprints/${sprintId}`}
                   className={getClassName(
-                    "my-3 h-10 hover:backdrop-brightness-90 ",
+                    "my-3 h-10 hover:backdrop-brightness-90 flex items-center justify-center",
                     sprintId === selectedSprintId && "bg-blue-800"
                   )}
                   key={sprintId}
                 >
                   Sprint #{sprintId}
-                </button>
+                </Link>
               ))}
             </section>
           )}

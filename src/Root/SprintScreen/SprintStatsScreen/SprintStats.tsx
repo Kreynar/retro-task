@@ -1,5 +1,5 @@
 import React from "react";
-import { SprintEvaluation } from "../../types";
+import { useSprintEvaluations } from "../../../SprintEvaluationsProvider";
 import { WhatWentX, WhatWentXType } from "../WhatWentX/WhatWentX";
 import { getSprintEvaluationAverageScore } from "./getSprintEvaluationAverageScore";
 import { getSprintEvaluationMentionedTags } from "./getSprintEvaluationMentionedTags";
@@ -7,13 +7,13 @@ import { getSprintEvaluationWhatWentX } from "./getSprintEvaluationWhatWentX";
 
 interface SprintStatsScreenProps {
   selectedSprintId: number;
-  selectedSprintEvaluation: SprintEvaluation;
 }
 
 export const SprintStatsScreen: React.FC<SprintStatsScreenProps> = ({
   selectedSprintId,
-  selectedSprintEvaluation,
 }) => {
+  const sprintEvaluations = useSprintEvaluations();
+  const selectedSprintEvaluation = sprintEvaluations[selectedSprintId];
   const { whatWentRight, whatWentWrong, whatToImprove } =
     getSprintEvaluationWhatWentX(selectedSprintEvaluation);
   return (

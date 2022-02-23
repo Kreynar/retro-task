@@ -71,11 +71,9 @@ export const WhatWentX: React.FC<WhatWentXProps> = ({
       <div className="h-full overflow-y-auto overflow-x-hidden w-full">
         <ul className="list-disc list-inside p-1">
           {items.map((item, index) => (
-            <>
-              <li key={index} className="text-sm list-item">
-                {item}
-              </li>
-            </>
+            <li key={index} className="text-sm list-item">
+              {item}
+            </li>
           ))}
           {isNewItemInputShown && (
             <div>

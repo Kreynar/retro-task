@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { User } from "../../types";
 import xIcon from "./x-icon.svg";
 import { TAGS } from "./tags";
 import { getClassName } from "../../../getClassName";
 import { WhatWentX, WhatWentXType } from "../../WhatWentX/WhatWentX";
-import { UserEvaluation } from "../../../types";
+import { User, UserEvaluation } from "../../../../types";
 
 interface SprintVotingDialogProps {
   selectedUser: User;
@@ -98,10 +97,10 @@ export const SprintVotingDialog: React.FC<SprintVotingDialogProps> = ({
                 <button
                   onClick={() => onTagClick(tag)}
                   className={getClassName(
-                    "border-2 border-blue-800 rounded-md m-0.5 w-fit px-4",
+                    "border-2 border-blue-800 rounded-md m-0.5 w-fit px-4 ",
                     selectedTags.includes(tag)
                       ? "bg-blue-800 text-white"
-                      : "bg-white text-blue-800"
+                      : "bg-white text-blue-800 hover:brightness-90"
                   )}
                   key={tag}
                 >
@@ -134,7 +133,7 @@ export const SprintVotingDialog: React.FC<SprintVotingDialogProps> = ({
             {errorMessage}
           </div>
           <button
-            className="font-bold text-xl uppercase z-51"
+            className="font-bold text-xl uppercase z-51 hover:font-extrabold"
             onClick={submitDialog_}
           >
             submit

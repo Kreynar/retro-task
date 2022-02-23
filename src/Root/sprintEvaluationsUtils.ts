@@ -1,5 +1,4 @@
-import { User } from "./Main/types";
-import { SprintEvaluation, SprintEvaluations } from "./types";
+import { SprintEvaluation, SprintEvaluations, User } from "../types";
 
 /**
  * @returns an array of ascending sprint IDs or empty array, if no sprint evaluations
@@ -71,6 +70,14 @@ export const getIsEvaluationInProgressForLastSprint = (
     return false;
   }
   return sprintEvaluations[lastSprintId].isEvaluationInProgress;
+};
+
+export const getIsEvaluationInProgressForSelectedSprint = (
+  sprintEvaluations: SprintEvaluations,
+  selectedSprintId: number
+): boolean => {
+  const selectedSprint = sprintEvaluations[selectedSprintId];
+  return selectedSprint.isEvaluationInProgress;
 };
 
 export const getHasUserEvaluatedSprint = (

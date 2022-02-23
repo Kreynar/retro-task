@@ -1,8 +1,7 @@
 import React from "react";
 import { getClassName } from "../../getClassName";
 import { getHasUserEvaluatedSprint } from "../../sprintEvaluationsUtils";
-import { SprintEvaluation } from "../../types";
-import { User } from "../types";
+import { SprintEvaluation, User } from "../../../types";
 
 interface UserCardProps {
   user: User;

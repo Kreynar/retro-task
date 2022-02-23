@@ -1,7 +1,6 @@
 import { getSprintEvaluations } from "../../getSprintEvaluations";
 import { getLastSprintId } from "../../sprintEvaluationsUtils";
-import { SprintEvaluations, UserEvaluation } from "../../types";
-import { User } from "../types";
+import { SprintEvaluations, User, UserEvaluation } from "../../../types";
 
 // In real world here should be a call to BE.
 export const postUserSprintEvaluation = async (

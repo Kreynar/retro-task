@@ -1,5 +1,5 @@
 import { getLastSprintId } from "./sprintEvaluationsUtils";
-import { SprintEvaluations } from "./types";
+import { SprintEvaluations } from "../types";
 
 export const addNewSprintEvaluation = (): Promise<SprintEvaluations> => {
   // In real world here should be a call to BE.

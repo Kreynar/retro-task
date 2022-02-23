@@ -1,27 +1,23 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { User } from "../types";
-import perchieLogo from "../perchie.png";
+import perchieLogo from "../../perchie.png";
 import { getUsers } from "./getUsers";
 import { SprintVotingDialog } from "./SprintVotingDialog/SprintVotingDialog";
-import { SprintEvaluation, UserEvaluation } from "../../types";
-import {
-  getHasUserEvaluatedSprint,
-  getHaveAllUsersEvaluatedSprint,
-} from "../../sprintEvaluationsUtils";
+import { User, UserEvaluation } from "../../../types";
+import { getHaveAllUsersEvaluatedSprint } from "../../sprintEvaluationsUtils";
 import { postUserSprintEvaluation } from "./postUserSprintEvaluation";
 import { updateSprintEvaluationAsCompleted } from "./updateSprintEvaluationAsCompleted";
-import { getClassName } from "../../getClassName";
 import { UserCard } from "./UserCard";
+import { useSprintEvaluations } from "../../../SprintEvaluationsProvider";
 
 interface SprintVotingScreenProps {
   selectedSprintId: number;
-  selectedSprintEvaluation: SprintEvaluation;
 }
 
 export const SprintVotingScreen: React.FC<SprintVotingScreenProps> = ({
   selectedSprintId,
-  selectedSprintEvaluation,
 }) => {
+  const sprintEvaluations = useSprintEvaluations();
+
   const [users, setUsers] = useState<User[]>();
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
@@ -71,7 +67,7 @@ export const SprintVotingScreen: React.FC<SprintVotingScreenProps> = ({
               {users.map((user) => (
                 <UserCard
                   user={user}
-                  selectedSprintEvaluation={selectedSprintEvaluation}
+                  selectedSprintEvaluation={sprintEvaluations[selectedSprintId]}
                   setSelectedUser={setSelectedUser}
                   key={user.id}
                 />

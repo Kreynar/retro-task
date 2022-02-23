@@ -1,4 +1,4 @@
-import { SprintEvaluation } from "../../types";
+import { SprintEvaluation } from "../../../types";
 
 export const getSprintEvaluationMentionedTags = (
   sprintEvaluation: SprintEvaluation
