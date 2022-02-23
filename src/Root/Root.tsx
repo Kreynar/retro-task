@@ -37,7 +37,7 @@ export const Root = () => {
 
   return (
     <div className="flex flex-row h-max w-max min-h-screen min-w-full">
-      <Navbar sprintEvaluations={sprintEvaluations} />
+      <Navbar />
       <div className="w-full flex flex-col">
         <header className="h-20 border-b-2 border-gray-300 flex flex-row-reverse">
           <ButtonCreateNewSprint

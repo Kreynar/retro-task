@@ -30,7 +30,7 @@ export const SprintStatsScreen: React.FC<SprintStatsScreenProps> = ({
         </div>
         <div className="font-bold flex flex-col m-5 text-center">
           The team mentioned the following tags:
-          <div className="text-blue-800 text-lg flex flex-col items-center">
+          <div className="text-blue-800 text-lg flex flex-row flex-wrap justify-center">
             {getSprintEvaluationMentionedTags(selectedSprintEvaluation).join(
               ", "
             )}
