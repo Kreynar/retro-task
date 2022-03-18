@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { SprintEvaluations } from "./types";
 
 const SprintEvaluationsContext = React.createContext<{
@@ -16,11 +16,14 @@ export const SprintEvaluationsProvider: React.FC = ({ children }) => {
   const [sprintEvaluations, setSprintEvaluations] = useState<SprintEvaluations>(
     {}
   );
+  
+  const value = useMemo(
+    () => ({ sprintEvaluations, setSprintEvaluations }),
+    [sprintEvaluations]
+  );
 
   return (
-    <SprintEvaluationsContext.Provider
-      value={{ sprintEvaluations, setSprintEvaluations }}
-    >
+    <SprintEvaluationsContext.Provider value={value}>
       {children}
     </SprintEvaluationsContext.Provider>
   );
